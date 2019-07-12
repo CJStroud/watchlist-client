@@ -40,13 +40,6 @@ class App extends Component {
     this.setState({ search, noEmptySearchError: false }, this.handleRequestFilms)
   }
 
-  renderHint () {
-    if (!this.state.films.length)
-    return (
-      <p>Try <a href='#' onClick={this.handleHintClick}>Planet of the apes</a>, Louise's favourite 😉</p>
-    )
-  }
-
   render () {
     return (
       <div className="App">
@@ -60,7 +53,6 @@ class App extends Component {
 
         {this.state.noEmptySearchError && <p style={{color: 'red'}}>Enter a value to search</p>}
 
-        {this.renderHint()}
         {<ResultCount count={this.state.films.length} search={this.state.search} />}
         {this.state.films.map(film => <FilmResult film={film} />)}
       </div>
